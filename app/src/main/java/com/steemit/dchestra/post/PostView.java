@@ -1,11 +1,9 @@
-package com.steemit.dchestra;
+package com.steemit.dchestra.post;
 
 import android.content.Context;
 import android.opengl.GLES10;
 import android.opengl.GLSurfaceView;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.view.View;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -17,7 +15,6 @@ import javax.microedition.khronos.opengles.GL10;
 public class PostView extends GLSurfaceView {
 
     private float w, h;
-    private int screenW, screenH;
 
     public float tx, ty;
 
@@ -40,15 +37,6 @@ public class PostView extends GLSurfaceView {
         vertBuffer = bb.asFloatBuffer();
         vertBuffer.put(verts);
         vertBuffer.position(0);
-/*
-        setOnTouchListener(new OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                tx = event.getX();
-                ty = event.getY();
-                return false;
-            }
-        });*/
     }
 
     private class PostRenderer implements GLSurfaceView.Renderer {
@@ -74,10 +62,7 @@ public class PostView extends GLSurfaceView {
             h = height;
             w = width;
 
-            screenH = height;
-            screenW = width;
-
-            gl.glViewport(0, 0, screenW, screenH);
+            gl.glViewport(0, 0, width, height);
 
             gl.glMatrixMode(GL10.GL_PROJECTION);
             gl.glLoadIdentity();
@@ -100,7 +85,7 @@ public class PostView extends GLSurfaceView {
             gl.glClear(GLES10.GL_COLOR_BUFFER_BIT);
             gl.glTranslatef(tx, ty, 0);
             gl.glScalef(200, 200, 0);
-            gl.glRotatef(45, 0, 0, 1);
+            gl.glRotatef(rot++, 0, 0, 1);
             gl.glVertexPointer(3, GL10.GL_FLOAT, 0, vertBuffer);
             gl.glDrawArrays(GL10.GL_TRIANGLE_STRIP,0 , 4);
 

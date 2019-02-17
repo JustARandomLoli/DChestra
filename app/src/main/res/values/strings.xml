@@ -3,4 +3,13 @@
     <string name="page_feed">Feed</string>
     <string name="page_trending">Trending</string>
     <string name="page_new">New</string>
+
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="back_button">Back Button</string>
+
+    <string name="profile_picture">Profile Picture</string>
+
 </resources>

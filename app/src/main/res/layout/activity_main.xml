@@ -15,7 +15,7 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.steemit.dchestra.PostList
+        <com.steemit.dchestra.post.PostList
             android:id="@+id/list_post"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
@@ -30,6 +30,7 @@
 
 
     <LinearLayout
+        android:id="@+id/top_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -74,7 +75,9 @@
 
     </LinearLayout>
 
+
     <LinearLayout
+        android:id="@+id/bottom_bar"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -106,7 +109,12 @@
             android:textColor="@color/navBar"
             android:textSize="18sp" />
 
-
     </LinearLayout>
+
+    <View
+        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#3000"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.steemit.dchestra;
+package com.steemit.dchestra.post;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -54,14 +54,10 @@ public class PostList extends ListView {
                         } else if(difY > difX && difY > 10) {
                             direction = 2; // Up/Down Swipe
                             return false;
-                        } else {
-
                         }
                         return true;
-                    } else if(direction == 1) {
-                        return true;
                     }
-                    return false;
+                    return (direction == 1);
                 } else {
                     return false;
                 }
